@@ -26,14 +26,14 @@ int removeDuplicates(std::vector<int> &nums) {
 void rotate(std::vector<int> &nums, int k) {
     int n = nums.size();
     k %= n;
-int count =0;
+    int count = 0;
     for (int startIndex = 0; count < n; startIndex++) {
         int currentIndex = startIndex;
         int prev = nums[startIndex];
         do {
             int nextIndex = (currentIndex + k) % n;
             int temp = nums[nextIndex];
-            nums[nextIndex] =prev;
+            nums[nextIndex] = prev;
             prev = temp;
             currentIndex = nextIndex;
             count++;
@@ -41,6 +41,26 @@ int count =0;
     }
 
 }
+
+void reversal(std::vector<int> &nums, int begin, int end) {
+    while (begin < end) {
+        int temp = nums[end];
+        nums[end] = nums[begin];
+        nums[begin] = temp;
+        begin++;
+        end--;
+    }
+}
+
+void rotateByReversal(std::vector<int> &nums, int k) {
+    k %= nums.size();
+    reversal(nums, 0, k - 1);
+    reversal(nums, k, nums.size() - 1);
+    reversal(nums, 0, nums.size() - 1);
+
+
+}
+
 
 void removeDuplicatesTest() {
     std::vector<int> nums = {1, 1, 2, 3};
@@ -55,16 +75,19 @@ void rotateTest() {
     std::vector<int> nums = {1, 2, 3, 4};
     int k = 2;
     rotate(nums, k);
+
     for (auto &i:nums) {
         std::cout << i << " ";
     }
     std::cout << std::endl;
+
     k = 3;
     rotate(nums, k);
     for (auto &i:nums) {
         std::cout << i << " ";
     }
     std::cout << std::endl;
+
     nums.push_back(5);
     k = 2;
     rotate(nums, k);
@@ -72,12 +95,68 @@ void rotateTest() {
         std::cout << i << " ";
     }
     std::cout << std::endl;
+
     k = 3;
     rotate(nums, k);
     for (auto &i:nums) {
         std::cout << i << " ";
     }
     std::cout << std::endl;
+
 };
+
+void rotateByReversalTest() {
+    std::vector<int> nums = {1, 2, 3, 4, 5, 6, 7};
+    int k = 0;
+
+
+    rotateByReversal(nums, k);
+    for (auto &i:nums) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+}
+
+int maxProfit(std::vector<int> &prices) {
+//    int buyVal = 0;
+//    bool hasStock = false;
+//    int profit = 0;
+//
+//    for (int i = 0; i < prices.size(); i++) {
+//        if (!hasStock) {
+//            if (i + 1 < prices.size() && prices[i + 1] > prices[i]) {
+//                buyVal = prices[i];
+//                hasStock = true;
+//            }
+//        } else if (hasStock) {
+//            if (i + 1 < prices.size()) {
+//                if (prices[i + 1] < prices[i]) {
+//                    profit += prices[i] - buyVal;
+//                    hasStock = false;
+//                }
+//            } else if (prices[i] > buyVal) {
+//                profit += prices[i] - buyVal;
+//                hasStock = false;
+//            }
+//        }
+//    }
+//
+//    return profit;
+    int sum = 0;
+    int i = 1;
+    for (; i < prices.size(); i++) {
+        if(prices[i] > prices[i-1])
+            sum +=(prices[i] - prices[i-1]);
+    }
+return sum;
+}
+
+void maxProfitTest() {
+    std::vector<int> prices2{1, 2, 3, 4, 5};
+    std::cout << maxProfit(prices2) << std::endl;
+    std::vector<int> prices{7, 1, 5, 3, 6, 4};
+    std::cout << maxProfit(prices) << std::endl;
+
+}
 
 #endif //LEETCODE_ARRAYTEST_H

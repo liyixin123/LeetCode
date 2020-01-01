@@ -1,7 +1,11 @@
 #include <iostream>
 #include "ArrayTest.h"
+#include "SortTest.h"
+
 int main()
 {
-    rotateTest();
+    sortTest();
+
+
     return 0;
 }
