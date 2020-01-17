@@ -4,8 +4,8 @@
 
 int main()
 {
-    sortTest();
-
-
+   // sortTest();
+   //moveZerosTest();
+    twoSumTest();
     return 0;
-}
+} 

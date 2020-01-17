@@ -2,7 +2,7 @@
 // Created by lyx on 2019/12/27.
 //
 #include <vector>
-
+#include <map>
 #ifndef LEETCODE_ARRAYTEST_H
 #define LEETCODE_ARRAYTEST_H
 
@@ -158,5 +158,124 @@ void maxProfitTest() {
     std::cout << maxProfit(prices) << std::endl;
 
 }
+std::vector<int> intersect1(std::vector<int>& nums1, std::vector<int>& nums2) {
+    std::vector<int> rtn;
+    int n1 = nums1.size(); 
+    int n2 = nums2.size();
 
+    if (n1 < n2)
+    {
+        for (int i = 0; i < n1; i++)
+        {
+
+        }
+    }
+    return nums1;
+}
+
+void intersectTest()
+{
+
+}
+
+void moveZeros(std::vector<int>& nums)
+{
+    //Á½¸öÖ¸Õë
+
+    int n = nums.size();
+  //  if (n <= 1) return;
+    int j = 0;
+    int i = 0;
+    for (; i < n; i++)
+    {
+        if (nums[i] == 0) continue;
+        std::swap(nums[j], nums[i]);
+       // nums[j++] = nums[i];
+        j++;
+    }
+    //for (int i = j; i < n; i++)
+
+    //{
+    //    nums[i] = 0;
+    //}
+}
+
+
+void moveZerosTest()
+{
+    std::vector<int> nums1 = { 0,1,0,3,12 };
+    std::vector<int> nums2 = { 0,0,3,12,1 };
+    std::vector<int> nums3 = { 1,0 };
+    std::vector<int> nums4 = { 0 };
+
+    std::vector<int> nums5 = { 2,1 };
+    moveZeros(nums1);
+    moveZeros(nums2);
+    moveZeros(nums3);
+    moveZeros(nums4);
+    moveZeros(nums5);
+    for (auto& i : nums1)
+    {
+        std::cout << i << " ";
+    }
+
+    std::cout << std::endl;
+
+    for (auto& i : nums2)
+    {
+        std::cout << i << " ";
+    }
+
+    std::cout << std::endl;
+
+    for (auto& i : nums3)
+    {
+        std::cout << i << " ";
+    }
+
+    std::cout << std::endl;
+
+    for (auto& i : nums4)
+    {
+        std::cout << i << " ";
+    }
+
+    std::cout << std::endl;
+
+    for (auto& i : nums5)
+    {
+        std::cout << i << " ";
+    }
+
+    std::cout << std::endl;
+}
+
+std::vector<int> twoSum(std::vector<int>& nums, int target) {
+    std::map<int, int> m_map;
+    std::vector<int> rtn;
+    int n = nums.size();
+
+    for (int i = 0; i < n; i++)
+    {
+        auto key = m_map.find(target - nums[i]);
+        if (key != m_map.end())
+        {
+            rtn.push_back(key->second);
+            rtn.push_back(i);
+            return rtn;
+        }
+
+        m_map.insert(std::pair<int, int>(nums[i], i));
+    }
+    return std::vector<int>();
+}
+
+void twoSumTest()
+{
+    std::vector<int> num = { 2,7,11,15 };
+    for (auto& i : twoSum(num, 9))
+    {
+        std::cout << i << std::endl;
+    }
+}
 #endif //LEETCODE_ARRAYTEST_H
