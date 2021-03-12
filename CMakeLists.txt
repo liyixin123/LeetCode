@@ -12,3 +12,5 @@ set(CMAKE_CXX_STANDARD 14)
 
 # add_executable(LeetCode ${SRC_LIST})
 add_executable(Diagonal_Traverse cpp//Diagonal_Traverse.cpp)
+
+add_executable(Verify-Preorder-Serialization-of-a-Binary-Tree "cpp/Verify-Preorder-Serialization-of-a-Binary-Tree.cpp")
