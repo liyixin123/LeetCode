@@ -14,3 +14,5 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(Diagonal_Traverse cpp//Diagonal_Traverse.cpp)
 
 add_executable(Verify-Preorder-Serialization-of-a-Binary-Tree "cpp/Verify-Preorder-Serialization-of-a-Binary-Tree.cpp")
+add_executable(DesignHashSet cpp/Hash/DesignHashSet.cpp)
+add_executable(DesignHashMap cpp/Hash/DesignHashMap.cpp)
