@@ -2,6 +2,8 @@
 [552. 学生出勤记录 II - 力扣（LeetCode）](https://leetcode-cn.com/problems/student-attendance-record-ii/)
 ## 思路
 根据输入的长度随机生成出勤记录，统计满足条件（合格）的数量
+1. 动态规划
+2. 矩阵快速幂
 ### Example 1:
 ```
 Input: n = 2
